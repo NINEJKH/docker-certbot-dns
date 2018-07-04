@@ -21,7 +21,6 @@ RUN apk update --quiet && apk add --quiet --no-cache --virtual .build-deps \
   musl-dev \
   libffi-dev && \
   pip install -qqq --no-cache-dir \
-    "certbot-dns-alwaysdata==${certbot_version}" \
     "certbot-dns-cloudflare==${certbot_version}" \
     "certbot-dns-cloudxns==${certbot_version}" \
     "certbot-dns-digitalocean==${certbot_version}" \
