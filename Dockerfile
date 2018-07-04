@@ -4,6 +4,8 @@ MAINTAINER 9JKH Dev<dev@9jkh.co.za>
 ENTRYPOINT [ "certbot" ]
 VOLUME /etc/letsencrypt /var/lib/letsencrypt
 
+ARG certbot_version=0.25.1
+
 # see: https://store.docker.com/community/images/certbot/certbot/dockerfile
 RUN apk update --quiet && apk add --quiet --no-cache --virtual .certbot-deps \
   libffi \
@@ -19,15 +21,15 @@ RUN apk update --quiet && apk add --quiet --no-cache --virtual .build-deps \
   musl-dev \
   libffi-dev && \
   pip install -qqq --no-cache-dir \
-    certbot-dns-alwaysdata==0.24.0 \
-    certbot-dns-cloudflare==0.24.0 \
-    certbot-dns-cloudxns==0.24.0 \
-    certbot-dns-digitalocean==0.24.0 \
-    certbot-dns-dnsimple==0.24.0 \
-    certbot-dns-dnsmadeeasy==0.24.0 \
-    certbot-dns-google==0.24.0 \
-    certbot-dns-luadns==0.24.0 \
-    certbot-dns-nsone==0.24.0 \
-    certbot-dns-rfc2136==0.24.0 \
-    certbot-dns-route53==0.24.0 && \
+    "certbot-dns-alwaysdata==${certbot_version}" \
+    "certbot-dns-cloudflare==${certbot_version}" \
+    "certbot-dns-cloudxns==${certbot_version}" \
+    "certbot-dns-digitalocean==${certbot_version}" \
+    "certbot-dns-dnsimple==${certbot_version}" \
+    "certbot-dns-dnsmadeeasy==${certbot_version}" \
+    "certbot-dns-google==${certbot_version}" \
+    "certbot-dns-luadns==${certbot_version}" \
+    "certbot-dns-nsone==${certbot_version}" \
+    "certbot-dns-rfc2136==${certbot_version}" \
+    "certbot-dns-route53==${certbot_version}" && \
   apk del --quiet .build-deps
