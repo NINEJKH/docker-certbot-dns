@@ -4,7 +4,7 @@ MAINTAINER 9JKH Dev<dev@9jkh.co.za>
 ENTRYPOINT [ "certbot" ]
 VOLUME /etc/letsencrypt /var/lib/letsencrypt
 
-ARG certbot_version=0.28.0
+ARG certbot_version=0.29.1
 
 # see: https://store.docker.com/community/images/certbot/certbot/dockerfile
 RUN apk add --quiet --no-cache --virtual .certbot-deps \
