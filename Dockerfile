@@ -1,15 +1,15 @@
-FROM python:2-alpine
+FROM python:3.7-alpine
 MAINTAINER 9JKH Dev<dev@9jkh.co.za>
 
 ENTRYPOINT [ "certbot" ]
 VOLUME /etc/letsencrypt /var/lib/letsencrypt
 
-ARG certbot_version=0.29.1
+ARG certbot_version=0.35.1
 
 # see: https://store.docker.com/community/images/certbot/certbot/dockerfile
 RUN apk add --quiet --no-cache --virtual .certbot-deps \
   libffi \
-  libssl1.0 \
+  libssl1.1 \
   openssl \
   ca-certificates \
   binutils
@@ -20,7 +20,7 @@ RUN apk add --quiet --no-cache --virtual .build-deps \
   openssl-dev \
   musl-dev \
   libffi-dev && \
-  pip install -qqq --no-cache-dir \
+  pip3 install -qqq --no-cache-dir \
     "certbot-dns-cloudflare==${certbot_version}" \
     "certbot-dns-cloudxns==${certbot_version}" \
     "certbot-dns-digitalocean==${certbot_version}" \
