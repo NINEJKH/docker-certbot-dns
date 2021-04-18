@@ -14,4 +14,8 @@ set -E
 trap 'throw_exception' ERR
 
 consolelog "building..."
-docker build --pull -t "${DOCKER_REPO}:latest" .
+docker build \
+  --progress plain \
+  --pull \
+  -t "${DOCKER_REPO}:latest" \
+  .
