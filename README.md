@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/NINEJKH/docker-certbot-dns.svg?branch=master)](https://travis-ci.org/NINEJKH/docker-certbot-dns)
-[![Docker Pulls](https://img.shields.io/docker/pulls/9jkh/certbot-dns.svg)](https://hub.docker.com/r/9jkh/certbot-dns/)
-
 # docker-certbot-dns
+
+[![Build Status](https://travis-ci.com/NINEJKH/docker-certbot-dns.svg?branch=master)](https://travis-ci.com/NINEJKH/docker-certbot-dns)
+[![Docker Pulls](https://img.shields.io/docker/pulls/9jkh/certbot-dns.svg)](https://hub.docker.com/r/9jkh/certbot-dns/)
 
 A docker image providing certbot (0.24) + all official DNS plugins. This is
 ideal if you want to create letsencrypt wildcard certificates.
