@@ -1,10 +1,9 @@
-FROM python:3.7-alpine
-MAINTAINER 9JKH Dev<dev@9jkh.co.za>
+FROM python:3.9-alpine
 
 ENTRYPOINT [ "certbot" ]
 VOLUME /etc/letsencrypt /var/lib/letsencrypt
 
-ARG certbot_version=0.35.1
+ARG certbot_version=1.14.0
 
 # see: https://store.docker.com/community/images/certbot/certbot/dockerfile
 RUN apk add --quiet --no-cache --virtual .certbot-deps \
