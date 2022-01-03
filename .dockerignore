@@ -1,2 +1,9 @@
 .git/
 .idea/
+.bash/
+.editorconfig
+.gitignore
+.travis.yml
+build.sh
+push.sh
+README.md
