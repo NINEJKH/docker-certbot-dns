@@ -1,5 +1,6 @@
-dist: bionic
+---
 
+dist: focal
 language: minimal
 
 services:
@@ -9,12 +10,13 @@ env:
   global:
     - DOCKER_REPO: 9jkh/certbot-dns
 
-before_install:
-  - ./build.sh
+install:
+  - make build
+  - make test
 
 deploy:
   provider: script
-  script: "./push.sh"
+  script: make publish
   skip_cleanup: true
   on:
-    branch: master
+    branch: main
