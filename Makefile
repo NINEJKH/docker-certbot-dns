@@ -40,7 +40,7 @@ build:
 
 .PHONY: test
 test:
-	docker run --rm '$(DOCKER_REPO):latest' --version
+	docker run --rm '$(REPO_NAME)' --version
 
 
 .PHONY: publish
