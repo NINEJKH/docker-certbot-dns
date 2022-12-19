@@ -5,7 +5,7 @@ norm := $(shell tput sgr0)
 
 # gh-actions shim
 ifdef GITHUB_REPOSITORY
-	REPO_NAME := $(GITHUB_REPOSITORY)
+	REPO_NAME := $(shell echo '$(GITHUB_REPOSITORY)' | tr A-Z a-z)
 endif
 
 ifdef GITHUB_REF
