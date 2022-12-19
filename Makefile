@@ -5,7 +5,7 @@ norm := $(shell tput sgr0)
 
 # gh-actions shim
 ifdef GITHUB_REPOSITORY
-	REPO_NAME := $(shell echo '$(GITHUB_REPOSITORY)' | tr A-Z a-z)
+	REPO_NAME ?= $(shell echo '$(GITHUB_REPOSITORY)' | tr A-Z a-z)
 endif
 
 ifdef GITHUB_REF
@@ -44,17 +44,20 @@ test:
 
 
 .PHONY: publish
-publish:
+publish: docker-login
 ifeq ($(GIT_BRANCH),main)
-	$(call docker_login)
 	@echo -e "🚀🐳 $(bold)Publishing: $(REPO_NAME):latest$(norm) 🐳🚀"
 	docker push '$(REPO_NAME)'
 else ifdef TAG_NAME
-	$(call docker_login)
 	@echo -e "🚀🐳 $(bold)Publishing: $(REPO_NAME):$(TAG_NAME)$(norm) 🐳🚀"
 	docker tag '$(REPO_NAME)' '$(REPO_NAME):$(TAG_NAME)'
 	docker push '$(REPO_NAME):$(TAG_NAME)'
 endif
+
+
+.PHONY: docker-login
+docker-login:
+	$(call docker_login)
 
 
 define docker_login
