@@ -12,6 +12,7 @@ on:
 
 env:
   TERM: xterm-256color
+  REPO_NAME: 9jkh/certbot-dns
 
 jobs:
   build-and-publish:

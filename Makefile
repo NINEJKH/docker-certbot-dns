@@ -58,5 +58,5 @@ endif
 
 
 define docker_login
-	docker login docker.io -u lifeofguenter -p '$(DOCKER_PASSWORD)'
+	echo -n '$(DOCKER_PASSWORD)' | docker login -u lifeofguenter --password-stdin
 endef
