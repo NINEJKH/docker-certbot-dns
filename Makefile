@@ -45,7 +45,7 @@ test:
 
 .PHONY: publish
 publish:
-ifeq ($(GIT_BRANCH), main)
+ifeq ($(GIT_BRANCH),main)
 	$(call docker_login)
 	@echo -e "🚀🐳 $(bold)Publishing: $(REPO_NAME):latest$(norm) 🐳🚀"
 	docker push '$(REPO_NAME)'
@@ -58,5 +58,5 @@ endif
 
 
 define docker_login
-	docker login -u lifeofguenter -p '$(DOCKER_PASSWORD)'
+	echo -n '$(DOCKER_PASSWORD)' | docker login -u lifeofguenter --password-stdin
 endef
