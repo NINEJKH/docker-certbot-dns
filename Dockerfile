@@ -25,14 +25,18 @@ RUN set -exo pipefail && \
         rust && \
     pip3 install -qqq --no-cache-dir \
         "certbot-dns-cloudflare==${certbot_version}" \
-        "certbot-dns-cloudxns==${certbot_version}" \
         "certbot-dns-digitalocean==${certbot_version}" \
         "certbot-dns-dnsimple==${certbot_version}" \
         "certbot-dns-dnsmadeeasy==${certbot_version}" \
+        "certbot-dns-gehirn==${certbot_version}" \
         "certbot-dns-google==${certbot_version}" \
+        "certbot-dns-linode==${certbot_version}" \
         "certbot-dns-luadns==${certbot_version}" \
         "certbot-dns-nsone==${certbot_version}" \
+        "certbot-dns-ovh==${certbot_version}" \
         "certbot-dns-rfc2136==${certbot_version}" \
         "certbot-dns-route53==${certbot_version}" \
+        "certbot-dns-sakuracloud==${certbot_version}" \
+        "certbot-dns-cloudxns==1.32.0" \
         "certbot-dns-bunny==0.0.9" && \
     apk del --quiet .build-deps
