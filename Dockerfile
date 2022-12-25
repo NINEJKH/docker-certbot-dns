@@ -38,5 +38,6 @@ RUN set -exo pipefail && \
         "certbot-dns-route53==${certbot_version}" \
         "certbot-dns-sakuracloud==${certbot_version}" \
         "certbot-dns-cloudxns==1.32.0" \
-        "certbot-dns-bunny==0.0.9" && \
+        "certbot-dns-bunny==0.0.9" \
+        "certbot-dns-gcore==0.1.7" && \
     apk del --quiet .build-deps
