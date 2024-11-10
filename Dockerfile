@@ -24,6 +24,7 @@ RUN set -exo pipefail && \
         openssl-dev \
         rust && \
     pip3 install -qqq --no-cache-dir \
+        "certbot==${certbot_version}" \
         "certbot-dns-cloudflare==${certbot_version}" \
         "certbot-dns-digitalocean==${certbot_version}" \
         "certbot-dns-dnsimple==${certbot_version}" \
