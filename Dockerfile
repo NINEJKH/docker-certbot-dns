@@ -9,7 +9,7 @@ ARG certbot_version=2.11.0
 RUN set -exo pipefail && \
     apk add --quiet --no-cache --virtual .certbot-deps \
         libffi \
-        libssl1.1 \
+        libssl3 \
         openssl \
         ca-certificates \
         binutils
