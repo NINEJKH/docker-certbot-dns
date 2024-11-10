@@ -3,7 +3,7 @@ FROM python:3.12-alpine
 ENTRYPOINT [ "certbot" ]
 VOLUME /etc/letsencrypt /var/lib/letsencrypt
 
-ARG certbot_version=2.11.0
+ARG certbot_version=3.0.0
 
 # see: https://store.docker.com/community/images/certbot/certbot/dockerfile
 RUN set -exo pipefail && \
@@ -38,7 +38,7 @@ RUN set -exo pipefail && \
         "certbot-dns-rfc2136==${certbot_version}" \
         "certbot-dns-route53==${certbot_version}" \
         "certbot-dns-sakuracloud==${certbot_version}" \
+        "certbot-dns-bunny==${certbot_version}" \
         "certbot-dns-cloudxns==1.32.0" \
-        "certbot-dns-bunny==0.0.9" \
         "certbot-dns-gcore==0.1.8" && \
     apk del --quiet .build-deps
