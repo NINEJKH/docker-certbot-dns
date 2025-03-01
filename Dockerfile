@@ -1,13 +1,14 @@
-FROM python:3.12-alpine
+FROM python:3.13-alpine
 
 ENTRYPOINT [ "certbot" ]
 VOLUME /etc/letsencrypt /var/lib/letsencrypt
 
-ARG certbot_version=3.0.0
+ARG certbot_version=3.2.0
 
 # see: https://store.docker.com/community/images/certbot/certbot/dockerfile
 RUN set -exo pipefail && \
     apk add --quiet --no-cache --virtual .certbot-deps \
+        bash \
         libffi \
         libssl3 \
         openssl \
@@ -39,7 +40,5 @@ RUN set -exo pipefail && \
         "certbot-dns-route53==${certbot_version}" \
         "certbot-dns-sakuracloud==${certbot_version}" \
         "certbot-dns-bunny==${certbot_version}" \
-        "certbot-dns-godaddy==2.8.0" \
-        "certbot-dns-cloudxns==1.32.0" \
         "certbot-dns-gcore==0.1.8" && \
     apk del --quiet .build-deps
