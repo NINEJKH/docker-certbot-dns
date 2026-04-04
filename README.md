@@ -3,7 +3,7 @@
 [![build and publish](https://github.com/NINEJKH/docker-certbot-dns/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/NINEJKH/docker-certbot-dns/actions/workflows/build-and-publish.yml)
 [![Docker Pulls](https://img.shields.io/docker/pulls/9jkh/certbot-dns.svg)](https://hub.docker.com/r/9jkh/certbot-dns/)
 
-A docker image providing certbot (0.24) + all official DNS plugins. This is
+A docker image providing certbot (3.3.0) + all official DNS plugins. This is
 ideal if you want to create letsencrypt wildcard certificates.
 
 ## Pull
