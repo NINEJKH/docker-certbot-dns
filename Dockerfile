@@ -1,6 +1,6 @@
 FROM python:3.13-alpine
 
-ENTRYPOINT [ "certbot" ]
+ENTRYPOINT ["certbot"]
 VOLUME /etc/letsencrypt /var/lib/letsencrypt
 
 ARG certbot_version=3.3.0
